@@ -7,7 +7,7 @@ import draw_diagram as dd
 
 def main():
     options = []
-    # criterion, function, lower_range, upper_range, epsilon_or_iterations
+    # criterion, acc_formula, function, lower_range, upper_range, epsilon_or_iterations
     # options = men.start()
     # print(options)
     dd.draw_function(-3, 3, fn.trigonometric, 0)

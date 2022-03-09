@@ -1,14 +1,16 @@
 import math
 import funkcje_nieliniowe as fn
 
+
 def start():
     criterion = choose_criterion()
     function = choose_function()
     lower_range, upper_range = choose_range(function)
+    acc_formula = choose_formula()
 
     if criterion == 1:
-        return criterion, function, lower_range, upper_range, float(input("epsilon: "))
-    return criterion, function, lower_range, upper_range, float(input("Liczba iteracji: "))
+        return criterion, acc_formula, function, lower_range, upper_range, float(input("epsilon: "))
+    return criterion, acc_formula, function, lower_range, upper_range, float(input("Liczba iteracji: "))
 
 
 def choose_criterion():
@@ -52,4 +54,14 @@ def choose_range(function):
         print("Wybierz prawidłowy przedział (dolny przedział < 0 i górny przedział > 0)")
 
 
+def choose_formula():
+    for _ in iter(int, 1):
+        print("Wybierz wzór oszacowania dokładności wyniku: ",
+              "\n1=|x_i−x_(i−1)| < ε",
+              "\n2=|f(x_i)| < ε")
+        a = float(input("wzór: "))
+
+        if a == 1 or a == 2:
+            return a
+        print("Wybierz prawidłowy wzór (1 lub 2)")
 # eval
