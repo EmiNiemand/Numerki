@@ -6,11 +6,10 @@ def start():
     criterion = choose_criterion()
     function = choose_function()
     lower_range, upper_range = choose_range(function)
-    acc_formula = choose_formula()
 
-    if criterion == 1:
-        return criterion, acc_formula, function, lower_range, upper_range, float(input("epsilon: "))
-    return criterion, acc_formula, function, lower_range, upper_range, float(input("Liczba iteracji: "))
+    if criterion == 1 or criterion == 2:
+        return criterion, function, lower_range, upper_range, float(input("epsilon: "))
+    return criterion, function, lower_range, upper_range, float(input("Liczba iteracji: "))
 
 
 def choose_criterion():
@@ -20,8 +19,10 @@ def choose_criterion():
               "\n2=Liczba iteracji")
         a = float(input("wariant: "))
 
-        if a == 1 or a == 2:
-            return a
+        if a == 1:
+            return choose_formula()
+        if a == 2:
+            return 3
         print("Wybierz prawidłowy wariant (1 lub 2)")
 
 
@@ -47,8 +48,8 @@ def choose_range(function):
         print("Wybierz przedział na którym mam szukać miejsca zerowego:")
         lower_range = float(input("dolny przedział: "))
         upper_range = float(input("górny przedział: "))
-        if lower_range < 0 < upper_range:
-            if function == fn.trigonometric and abs(lower_range) + upper_range > math.pi:
+        if (function(lower_range) * function(upper_range)) < 0:
+            if function == fn.trigonometric and abs(lower_range) + upper_range > (2 * math.pi):
                 continue
             return lower_range, upper_range
         print("Wybierz prawidłowy przedział (dolny przedział < 0 i górny przedział > 0)")
