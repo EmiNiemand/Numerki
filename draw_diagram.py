@@ -6,10 +6,11 @@ import funkcje_nieliniowe as fn
 def draw_function(lower_range, upper_range, function, x0):
     axes = mplot.figure().subplots()
     x = np.linspace(lower_range, upper_range, 100)
-    y = function(x)
-    axes.scatter(x, y, s=2)
+    y = []
+    for i in x:
+        y.append(function(i))
     axes.plot(x, y, "r")
-    axes.plot(x0, 0, "b")
+    axes.plot(x0, function(x0), marker=".", color="b")
 
     axes.set_xlabel('X')
     axes.set_ylabel('Y')
