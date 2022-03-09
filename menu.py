@@ -9,7 +9,7 @@ def start():
 
     if criterion == 1 or criterion == 2:
         return criterion, function, lower_range, upper_range, float(input("epsilon: "))
-    return criterion, function, lower_range, upper_range, float(input("Liczba iteracji: "))
+    return criterion, function, lower_range, upper_range, int(input("Liczba iteracji: "))
 
 
 def choose_criterion():
