@@ -6,18 +6,16 @@ def falsi(criterion, function, lower_range, upper_range, eoi):
         for _ in iter(int, 1):
             if checker is True:
                 previous_x0 = x0
-                print(previous_x0)
             fl = function(lower_range)
             fu = function(upper_range)
             x0 = lower_range - (fl / (fu - fl)) * (upper_range - lower_range)
-            if x0 == 0:
+            if x0 == 0 or (checker is True and abs(x0 - previous_x0) < eoi):
                 return x0
             elif function(x0) * fl < 0:
                 upper_range = x0
             elif function(x0) * fu < 0:
                 lower_range = x0
-            if checker is True and abs(x0 - previous_x0) < eoi:
-                return x0
+            checker = True
     # |f(x_i)| < ε
     if criterion == 2:
         for _ in iter(int, 1):
