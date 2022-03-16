@@ -1,6 +1,5 @@
 import matplotlib.pyplot as mplot
 import numpy as np
-import funkcje_nieliniowe as fn
 
 
 def draw_function(lower_range, upper_range, function, x0):
