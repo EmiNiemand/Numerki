@@ -12,7 +12,7 @@ def main():
     options = men.start()
     print(options)
     dd.draw_function(options[2], options[3], options[1],
-                     fs.falsi(options[0], options[1], options[2], options[3], options[4]))
+                     fs.falsi(options[1], options[2], options[3], options[0], options[4]))
     dd.draw_function(options[2], options[3], options[1],
                      bi.bisection(options[1], options[2], options[3], options[4], options[0]))
 
