@@ -1,5 +1,5 @@
 import sys
-
+import accuracy as ac
 
 def bisection(fun, lower_range, upper_range, epsilon_or_iteration, criterion):
     lower = lower_range
@@ -7,11 +7,11 @@ def bisection(fun, lower_range, upper_range, epsilon_or_iteration, criterion):
 
     if criterion != 3:
         if criterion == 1:
-            acc_formula = bisection_A
+            acc_formula = ac.acc_A
         else:
-            acc_formula = bisection_B
+            acc_formula = ac.acc_B
     else:
-        acc_formula = bisection_C
+        acc_formula = ac.acc_C
 
     for now_iteration in range(1, sys.maxsize - 1):
         middle = (lower + upper) / 2
@@ -21,15 +21,3 @@ def bisection(fun, lower_range, upper_range, epsilon_or_iteration, criterion):
             lower = middle
         else:
             upper = middle
-
-
-def bisection_A(lower, upper, fun, epsilon, now_iteration):
-    return abs(upper - lower) < epsilon
-
-
-def bisection_B(lower, upper, fun, epsilon, now_iteration):
-    return abs(fun(upper)) < epsilon
-
-
-def bisection_C(lower, upper, fun, iteration, now_iteration):
-    return iteration <= now_iteration
