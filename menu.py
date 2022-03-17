@@ -65,4 +65,3 @@ def choose_formula():
         if a == 1 or a == 2:
             return a
         print("Wybierz prawidłowy wzór (1 lub 2)")
-# eval
