@@ -1,6 +1,7 @@
 import sys
 import accuracy as ac
 
+
 def falsi(function, lower_range, upper_range, criterion, eoi):
     if criterion != 3:
         if criterion == 1:
@@ -14,7 +15,7 @@ def falsi(function, lower_range, upper_range, criterion, eoi):
         fl = function(lower_range)
         fu = function(upper_range)
         x0 = lower_range - (fl / (fu - fl)) * (upper_range - lower_range)
-        if x0 == 0 or (now_iteration > 1 and acc_formula(x0, previous_x0, function, eoi, now_iteration) is True):
+        if function(x0) == 0 or (now_iteration > 1 and acc_formula(x0, previous_x0, function, eoi, now_iteration) is True):
             return x0
         elif function(x0) * fl < 0:
             upper_range = x0
