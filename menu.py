@@ -30,8 +30,12 @@ def choose_function():
     for _ in iter(int, 1):
         print("Wybierz funkcję: ",
               "\n1=((2*x+2)*x+4)*x-1",
-              "\n2=sin(x)"
-              "\n3=2**x-2")
+              "\n2=sin(x)",
+              "\n3=2**x-2",
+              "\n4=((2*x+2)*x+4)*x + sin(x)",
+              "\n5=sin(x) + 2**x-2",
+              "\n6=((2*x+2)*x+4)*x - 2**x-2"
+              )
         a = float(input("funkcja: "))
 
         if a == 1:
@@ -40,7 +44,13 @@ def choose_function():
             return fn.trigonometric
         if a == 3:
             return fn.exponential
-        print("Wybierz prawidłową liczbę (1 lub 2 lub 3)")
+        if a == 4:
+            return fn.polynomial_trigonometric
+        if a == 5:
+            return fn.trigonometric_exponential
+        if a == 6:
+            return fn.polynomial_exponential
+        print("Wybierz prawidłową liczbę (od 1 do 6)")
 
 
 def choose_range(function):
