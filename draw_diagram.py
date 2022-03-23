@@ -4,6 +4,7 @@ import numpy as np
 
 def draw_function(lower_range, upper_range, function, x0):
     axes = mplot.figure().subplots()
+    print(x0)
     x = np.linspace(lower_range, upper_range, 100)
     y = []
     for i in x:
